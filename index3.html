@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>compile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="app">
+            <p>{{name}}</p>
+            <p v-text="name"></p>
+            <p>{{age}}</p>
+            <p>{{doubleAge}}</p>
+            <input type="text" v-model="name">
+            <button @click="changeName">修改</button>
+            <div v-html="html"></div>
+        </div>
+        <script src="./compile.js"></script>
+        <script src="./GVue.js"></script>
+        <script>
+            const sp = new GVue({
+                el: '#app',
+                data: {
+                    name : 'I am surveypluser',
+                    age: 2,
+                    html: '<button>{{name}}</button>'
+                },
+                created() {
+                    setTimeout(() => {
+                        this.name = 'surveyplus'
+                    }, 1500)
+                },
+                methods: {
+                    changeName() {
+                        this.name = '瀚一数据'
+                        this.age = 2
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

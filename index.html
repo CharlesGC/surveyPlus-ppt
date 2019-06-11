@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>实现数据响应式</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="app">
+            <span id="name"></span>
+        </div>
+        <!-- <script>
+            var obj = {};
+
+            Object.defineProperty(obj, 'name', {
+                get: function() {
+                    return document.querySelector('#name').innerHTML;
+                },
+                set: function(val) {
+                    document.querySelector('#name').innerHTML = val
+                }
+            })
+
+            obj.name = 'surveyPlus'
+        </script> -->
+        <script src="./GVue.js"></script>
+        <script>
+            const app = new GVue({
+                data: {
+                    test: 'Hello world',
+                    foo: {
+                        bar: 'bar'
+                    }
+                }
+            });
+
+
+            app.$data.test = 'hello surveyPlus';
+            app.$data.foo.bar = 'yes i am bar'
+        </script>
+    </body>
+</html>
